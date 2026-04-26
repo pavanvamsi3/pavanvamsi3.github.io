@@ -1,76 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>RJs</title>
-	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pavan Vamsi</title>
+  <meta name="description" content="Projects by Pavan Vamsi — local-first developer tools and small libraries.">
+  <meta property="og:title" content="Pavan Vamsi">
+  <meta property="og:description" content="Projects by Pavan Vamsi — local-first developer tools and small libraries.">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S9LDSSZ2FT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-S9LDSSZ2FT');
+  </script>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-S9LDSSZ2FT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-S9LDSSZ2FT');
-</script>
 <body>
-  <div class="container">
-    <div class="row">
-    	<div class="col-md-12">
-    		<div class="well clearfix">
-    			<blockquote>
-                    <p id="getOtherJoke"></p>
-                    <footer><cite title="Source Title">Internet Database</cite></footer>
-                </blockquote>
-                <div class="fright">
-                    <button class="btn btn-success" id="getMessage">New Joke</button>
-                </div>
-                <div class="fleft">
-                	<a id="twitter" data-size="small" target="_blank">
-                    <button type="button" class="btn btn-primary">Tweet Joke!</button></a>
-	            </div>
-    		</div>
+  <header>
+    <span class="title">Pavan Vamsi</span>
+    <nav>
+      <a href="https://github.com/pavanvamsi3">GitHub</a>
+      <a href="https://twitter.com/pavanvamsi">Twitter</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>Projects</h1>
+      <p>Local-first developer tools and small libraries. Most of what's here reads from your filesystem, runs in your browser, and never phones home.</p>
+    </section>
+
+    <h2 class="section">Active</h2>
+    <div class="projects">
+
+      <article class="project">
+        <div class="project-head">
+          <h3><a href="https://pavanvamsi3.github.io/copilot-lens">Copilot Lens</a></h3>
+          <div class="links">
+            <a href="https://github.com/pavanvamsi3/copilot-lens">GitHub</a>
+            <a href="https://www.npmjs.com/package/copilot-lens">npm</a>
+          </div>
         </div>
+        <p>A local memory layer for AI coding assistants. Search and browse everything you've ever discussed with Copilot CLI, VS Code Copilot Chat, or Claude Code. Tokens, analytics, and an effectiveness score — all on your machine.</p>
+        <ul class="tags">
+          <li>node</li>
+          <li>typescript</li>
+          <li>react</li>
+          <li>local-first</li>
+        </ul>
+      </article>
+
+      <article class="project">
+        <div class="project-head">
+          <h3><a href="https://hummingbatman.github.io/agentcontrol">agentcontrol</a></h3>
+          <div class="links">
+            <a href="https://github.com/hummingbatman/agentcontrol">GitHub</a>
+          </div>
+        </div>
+        <p>Watch all your AI coding agents work in real-time, from a single browser tab. An Among Us-inspired live dashboard for GitHub Copilot CLI sessions — agents move between zone rooms as they use tools.</p>
+        <ul class="tags">
+          <li>express</li>
+          <li>react</li>
+          <li>vite</li>
+          <li>sse</li>
+          <li>framer-motion</li>
+        </ul>
+      </article>
+
+      <article class="project">
+        <div class="project-head">
+          <h3><a href="https://pugulist.github.io/math-stats">math-stats</a></h3>
+          <div class="links">
+            <a href="https://github.com/pugulist/math-stats">GitHub</a>
+            <a href="https://www.npmjs.com/package/math-stats">npm</a>
+          </div>
+        </div>
+        <p>A small JavaScript library that does statistics for your numbers. Mean, median, mode, variance, standard deviation, harmonic and geometric mean — nothing else.</p>
+        <ul class="tags">
+          <li>javascript</li>
+          <li>npm</li>
+          <li>library</li>
+        </ul>
+      </article>
+
     </div>
-  </div>
-<script>
-    $(document).ready(function() {
-        init();
-        var jokes = [];
-        function init () {
-            var jokesAPI = "https://icanhazdadjoke.com/";
-            $.getJSON(
-                jokesAPI,
-                {}
-            )
-            .done(function(json) {
-                var obj = JSON.stringify(json);
-                var data = JSON.parse(obj);
-                var jokeDisplay = document.getElementById("getOtherJoke");
-                for (var i = 0; i < data.joke.length; i++) {
-                    jokes.push(data.joke);
-                }
-                document.getElementById("getOtherJoke").innerHTML = data.joke;
-            })
-            .fail(function( jqxhr, textStatus, error ) {
-                 var err = textStatus + ", " + error;
-                 $("#getOtherJoke").append('Request to the server failed. Try again later!');
-            });
-    }
-        $("#getMessage").on("click", function() {
-            init();
-        });
-        $("#twitter").on("click", function() {
-            var textJoke = $('#getOtherJoke').text();
-            $(this).attr("href", 'https://twitter.com/intent/tweet?text=' + textJoke);
-        });
-    });
-</script>
+  </main>
+
+  <footer>
+    <span>Built by <a href="https://github.com/pavanvamsi3">@pavanvamsi3</a>.</span>
+    <span><a href="https://github.com/pavanvamsi3/pavanvamsi3.github.io">Source</a></span>
+  </footer>
 </body>
 </html>
